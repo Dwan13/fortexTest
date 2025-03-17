@@ -1,0 +1,55 @@
+:root {
+	//Font Family
+	--font-base: var(--font-poppins);
+	--font-secondary: var(--font-poppins);
+	--font-titles: var(--font-poppins);
+	--titles-transform: none;
+
+	//colors
+	--color-body: var(--neutral-6);
+	--color-link: var(--base);
+	--color-titles: var(--fourth-6);
+	--color-title-decorate: var(--base);
+
+	--textCategoryColor: var(--neutral-5);
+	--textDisclaimerColor: var(--neutral-5);
+	--textWhiteColor: var(--white);
+	--textSecondaryColor: var(--fourth);
+	--textGrayDarkColor: var(--neutral-6);
+	--textInfoColor: var(--info);
+	--textSuccessColor: var(--success);
+	--textWarningColor: var(--warning);
+	--textErrorColor: var(--error);
+	--textHighlightColor: var(--base);
+
+	// Decorate
+	--title-decorate: '\e99b';
+	--color-title-decorate: transparent;
+	--bg-title-decorate: var(--base);
+	--width-title-decorate: 56px;
+	--height-title-decorate: 4px;
+	--top-title-decorate: 100%;
+	--left-title-decorate: 0;
+	--padding-title-decorate: 0 0 var(--sizing-XS);
+	--margin-title-decorate: 0 0 var(--sizing-L);
+
+	//Sizing
+	--font-size-XXS: 0.7rem; //10px
+	--font-size-XS: 0.8rem; //12px
+	--font-size-S: 0.89rem; //14px
+	--font-size-M: 1rem; //16px
+	--font-size-L: 1.122rem; //18px
+	--font-size-X: 1.22rem; //20px
+	--font-size-XL: 1.4rem; //24px
+	--font-size-XXL: 2rem; //38px
+	--font-size-XXXL: 2.6rem; //44px
+
+	--font-bold: 700;
+
+	@media (min-width: 992px) {
+		--font-bold: 600;
+		--font-size-XL: 1.6rem; //24px
+		--font-size-XXL: 2.27rem; //38px
+		--font-size-XXXL: 2.9rem; //44px
+	}
+}

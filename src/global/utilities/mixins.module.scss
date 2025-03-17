@@ -1,0 +1,35 @@
+// mixins.module.scss
+
+@import '../tokens/screensizings'; // Importa los breakpoints predefinidos
+
+@mixin responsiveUp($size) {
+	$valid-breakpoints: map-keys(
+		$grid-breakpoints
+	); // Obtiene las claves (nombres) de los breakpoints
+
+	@if map-has-key($grid-breakpoints, $size) {
+		$media-query: map-get($grid-breakpoints, $size);
+
+		@media (min-width: $media-query) {
+			@content;
+		}
+	} @else {
+		@warn "El breakpoint #{$size} no está definido en tus breakpoints predefinidos.";
+	}
+}
+
+@mixin responsiveDown($size) {
+	$valid-breakpoints: map-keys(
+		$grid-breakpoints
+	); // Obtiene las claves (nombres) de los breakpoints
+
+	@if map-has-key($grid-breakpoints, $size) {
+		$media-query: map-get($grid-breakpoints, $size);
+
+		@media (max-width: $media-query) {
+			@content;
+		}
+	} @else {
+		@warn "El breakpoint #{$size} no está definido en tus breakpoints predefinidos.";
+	}
+}

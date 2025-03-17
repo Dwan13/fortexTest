@@ -1,0 +1,39 @@
+.MuiTextField-root {
+    background-color: var(--bg-body);
+    border-radius: var(--radius-checkbox);
+    color: var(--neutral-6);
+  }
+  
+  .MuiTextField-root.Mui-focused {
+    border-color: var(--base);
+  }
+  
+  .MuiCheckbox-root {
+    color: var(--neutral-6);
+  }
+  
+  .MuiCheckbox-root.Mui-checked {
+    color: var(--base);
+  }
+  
+  .MuiButton-contained {
+    background-color: var(--base);
+    color: var(--white);
+    border-radius: var(--radius-checkbox);
+  }
+  
+  .MuiButton-contained:hover {
+    background-color: var(--base-5);
+  }
+  
+  .MuiButton-outlined {
+    border-color: var(--base);
+    color: var(--base);
+    border-radius: var(--radius-checkbox);
+  }
+  
+  .MuiButton-outlined:hover {
+    border-color: var(--base-5);
+    color: var(--base-5);
+  }
+  

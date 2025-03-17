@@ -1,0 +1,159 @@
+$tag-colors: (lime, nature, magenta, coral, purple, apple, zink);
+
+$tag-colors-emphasis: (Yellow, Pink, Green, Blue, Mauve);
+
+$tag-semantics: (info, success, warning, error);
+
+.tag {
+	width: fit-content;
+	padding: 0 var(--spacing-S);
+	color: var(--tag-default);
+	font-size: var(--font-size-S);
+	border-radius: var(--tag-radius);
+	background: var(--tag-default-1);
+	border: solid 2px var(--tag-default);
+	font-weight: 600;
+	line-height: 1.8em;
+	white-space: nowrap;
+
+	* {
+		display: flex;
+		gap: var(--spacing-XXS);
+		align-items: center;
+	}
+}
+
+.small {
+	font-size: var(--font-size-XS);
+	padding: 1px var(--spacing-XS);
+	line-height: 1.44em;
+}
+
+.micro {
+	font-size: var(--font-size-XXS);
+	padding: 1px var(--spacing-XXS);
+	line-height: 1.4em;
+}
+
+@each $color in $tag-colors {
+	.tag_#{$color} {
+		background: var(--#{$color}-1);
+
+		* {
+			mix-blend-mode: var(--mix-blend-tag);
+		}
+
+		@at-root div[id='themeBody'][data-mode='light'] #{&} {
+			@if $color ==zink {
+				color: var(--trabant);
+				border-color: var(--trabant);
+
+				* {
+					mix-blend-mode: normal;
+				}
+			} @else if $color ==apple {
+				color: var(--success);
+				border-color: var(--#{$color});
+
+				* {
+					mix-blend-mode: plus-darker;
+				}
+			} @else {
+				color: var(--#{$color});
+				border-color: var(--#{$color}-4);
+			}
+		}
+
+		@at-root div[id='themeBody'][data-mode='dark'] #{&} {
+			color: var(--#{$color});
+			border-color: var(--#{$color}-4);
+		}
+
+		&.solid {
+			background: var(--#{$color});
+
+			* {
+				mix-blend-mode: plus-lighter;
+			}
+
+			@at-root div[id='themeBody'][data-mode='light'] #{&} {
+				@if $color ==zink {
+					color: var(--trabant);
+					border-color: var(--#{$color});
+
+					* {
+						mix-blend-mode: normal;
+					}
+				} @else if $color ==apple {
+					color: var(--nature);
+					border-color: var(--#{$color});
+
+					* {
+						mix-blend-mode: multiply;
+					}
+				} @else {
+					border-color: var(--#{$color});
+					color: var(--white);
+				}
+			}
+
+			@at-root div[id='themeBody'][data-mode='dark'] #{&} {
+				@if $color ==zink {
+					color: var(--trabant);
+					border-color: var(--#{$color});
+
+					* {
+						mix-blend-mode: normal;
+					}
+				} @else if $color ==apple {
+					color: var(--nature);
+					border-color: var(--#{$color});
+
+					* {
+						mix-blend-mode: multiply;
+					}
+				} @else {
+					border-color: var(--#{$color});
+					color: var(--white);
+				}
+			}
+		}
+
+		&.borderless {
+			border-color: transparent !important;
+		}
+	}
+}
+
+@each $color in $tag-colors-emphasis {
+	.tag_#{$color} {
+		border: solid 2px transparent;
+		background: var(--soft#{$color});
+
+		@at-root div[id='themeBody'][data-mode='light'] #{&} {
+			color: var(--strong#{$color});
+		}
+
+		@at-root div[id='themeBody'][data-mode='dark'] #{&} {
+			color: var(--light#{$color});
+		}
+	}
+}
+
+@each $color in $tag-semantics {
+	.tag_#{$color} {
+		background: var(--#{$color}-1);
+		color: var(--#{$color});
+		border: solid 2px var(--#{$color});
+
+		&.solid {
+			background: var(--#{$color});
+			color: var(--white);
+			border: solid 2px var(--#{$color});
+
+			* {
+				mix-blend-mode: plus-lighter;
+			}
+		}
+	}
+}

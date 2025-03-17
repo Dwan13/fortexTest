@@ -1,0 +1,150 @@
+@import 'app/global/utilities/mixins.module.scss';
+
+
+.Logo {
+	width: auto;
+	height: 36px;
+
+	@include responsiveUp(md) {
+		height: 60px;
+	}
+}
+
+.container {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	grid-template-rows: 19vh auto;
+	background-color: var(--fourth);
+	align-items: flex-start;
+
+	@include responsiveUp(md) {
+		grid-template-rows: 26vh auto;
+	}
+
+	@include responsiveUp(lg) {
+		grid-template-rows: 50dvh auto;
+	}
+}
+
+.contentForm {
+	display: grid;
+	width: 94%;
+	margin: -5% auto 0;
+	z-index: var(--zindex-content);
+
+	@include responsiveUp(md) {
+		width: 86%;
+	}
+
+	@include responsiveUp(lg) {
+		margin-top: -4%;
+		width: 96%;
+		grid-template-columns: 1fr 2fr;
+	}
+
+	@include responsiveUp(xl) {
+		width: 86%;
+	}
+}
+
+.headerForm {
+	display: grid;
+	place-content: center center;
+	padding: var(--spacing-L);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(8px);
+	border: solid 1px var(--white);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titleWelcome {
+  border-bottom: solid 2px var(--white);
+  padding-bottom: var(--spacing-M);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.imageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-M);
+  border-radius: 12px;
+}
+
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: var(--spacing-XXL);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-M);
+	text-align: center;
+}
+
+
+.wrapper {
+	position: relative;
+	display: grid; 
+	gap: var(--spacing-M);
+	padding-top: 54px;
+	padding-bottom: 54px;
+
+	@include responsiveDown(md) {
+		padding: var(--spacing-XL);
+	}
+}
+
+.form {
+	display: flex;
+	gap: var(--spacing-M);
+    align-items: center;
+	
+	@include responsiveDown(lg) {
+		display: grid;
+	}
+
+	@include responsiveUp(lg) {
+		> * {
+			flex: 3;
+
+			&:last-child {
+				flex: 1;
+			}
+		}
+	}
+}
+
+.picture{
+	height: 45vh;
+	position: relative;
+	z-index: var(--zindex-banner);
+
+	@include responsiveUp(lg) {
+		height: 50vh;
+	}
+	
+
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+		  to bottom,
+		  rgba(0, 0, 0, 0.3) 0%,
+		  rgba(0, 0, 0, 0.1) 50%,
+		  rgba(0, 0, 0, 0.3) 100%
+		);
+	  }
+}

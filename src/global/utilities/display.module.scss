@@ -1,0 +1,134 @@
+$displays: none, block, flex, grid, table;
+$aligns: start, center, end, stretch;
+$justifys: initial, start, center, end, between, around, evenly;
+
+//Display
+@each $display in $displays {
+	.d_#{$display} {
+		display: #{$display} !important;
+	}
+}
+
+@each $display in $displays {
+	.d_inline_#{$display} {
+		display: inline-#{$display} !important;
+	}
+}
+
+//Align
+@each $position in $aligns {
+	.align_items_#{$position} {
+		@if $position ==start {
+			align-items: flex-#{$position} !important;
+		} @else if $position ==end {
+			align-items: flex-#{$position} !important;
+		} @else {
+			align-items: #{$position} !important;
+		}
+	}
+}
+
+@each $position in $aligns {
+	.align_content_#{$position} {
+		@if $position ==start {
+			align-content: flex-#{$position} !important;
+		} @else if $position ==end {
+			align-content: flex-#{$position} !important;
+		} @else {
+			align-content: #{$position} !important;
+		}
+	}
+}
+
+@each $position in $aligns {
+	.align_self_#{$position} {
+		@if $position ==start {
+			align-self: flex-#{$position} !important;
+		} @else if $position ==end {
+			align-self: flex-#{$position} !important;
+		} @else {
+			align-self: #{$position} !important;
+		}
+	}
+}
+
+//Justify
+@each $position in $aligns {
+	.justify_items_#{$position} {
+		@if $position ==between {
+			justify-items: space-#{$position} !important;
+		} @else if $position ==start {
+			justify-items: flex-#{$position} !important;
+		} @else if $position ==end {
+			justify-items: flex-#{$position} !important;
+		} @else {
+			justify-items: #{$position} !important;
+		}
+	}
+}
+
+@each $justify in $justifys {
+	.justify_content_#{$justify} {
+		@if $justify ==between or $justify ==around or $justify ==evenly {
+			justify-content: space-#{$justify} !important;
+		} @else if $justify ==start {
+			justify-content: flex-#{$justify} !important;
+		} @else if $justify ==end {
+			justify-content: flex-#{$justify} !important;
+		} @else {
+			justify-content: #{$justify} !important;
+		}
+	}
+}
+
+@each $position in $aligns {
+	.justify_self_#{$position} {
+		@if $position ==between {
+			justify-self: space-#{$position} !important;
+		} @else if $position ==start {
+			justify-self: flex-#{$position} !important;
+		} @else if $position ==end {
+			justify-self: flex-#{$position} !important;
+		} @else {
+			justify-self: #{$position} !important;
+		}
+	}
+}
+
+//Wrap
+.flex_wrap {
+	flex-wrap: wrap !important;
+}
+
+.flex_nowrap {
+	flex-wrap: nowrap !important;
+}
+
+//Flex
+.flex_auto {
+	flex: 1 1 auto !important;
+}
+
+.flex_out {
+	flex: 1 1 0 !important;
+}
+
+.flex_row {
+	flex-flow: row !important;
+}
+
+.flex_column {
+	flex-flow: column !important;
+}
+
+.flex_row_reverse {
+	flex-direction: row-reverse !important;
+}
+
+.flex_column_reverse {
+	flex-direction: column-reverse !important;
+}
+
+.ghost {
+	opacity: 0;
+}

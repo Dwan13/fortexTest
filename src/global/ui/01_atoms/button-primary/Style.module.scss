@@ -1,0 +1,33 @@
+.button {
+	font-size: var(--font-size-M);
+
+	&:not([disabled]) {
+		&:hover {
+			box-shadow: 0 0 0 4px var(--progress-card-color-1);
+			cursor: pointer;
+		}
+	}
+
+	&[disabled] {
+		color: var(--neutral-3);
+		background: var(--neutral-1);
+
+		&:hover {
+			pointer-events: none;
+		}
+	}
+}
+
+
+.spinner {
+	position: absolute !important;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	--color-spinner: var(--white);
+}
+
+
+.pointerEventNone {
+	pointer-events: none;
+}

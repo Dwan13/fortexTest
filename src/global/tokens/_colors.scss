@@ -1,0 +1,80 @@
+:root {
+	--base: #1976d2;
+	--base-1: #1976d220;
+	--base-2: #1976d235;
+	--base-3: #1976d250;
+	--base-4: #1976d265;
+	--base-5: #1976d280;
+	--base-6: #1976d2;
+
+	--secondary: #d32f2f;
+	--secondary-1: #d32f2f20;
+	--secondary-2: #d32f2f35;
+	--secondary-3: #d32f2f50;
+	--secondary-4: #d32f2f65;
+	--secondary-5: #d32f2f80;
+	--secondary-6: #d32f2f;
+
+	--tertiary: #388e3c;
+	--tertiary-1: #388e3c20;
+	--tertiary-2: #388e3c35;
+	--tertiary-3: #388e3c50;
+	--tertiary-4: #388e3c65;
+	--tertiary-5: #388e3c80;
+	--tertiary-6: #388e3c;
+
+	--fourth: #121212;
+	--fourth-1: #12121220;
+	--fourth-2: #12121235;
+	--fourth-3: #12121250;
+	--fourth-4: #12121265;
+	--fourth-5: #12121280;
+	--fourth-6: #121212;
+
+	--white: #ffffff;
+	--base-color-theme: 18, 18, 18;
+	--color-theme-base: rgb(var(--base-color-theme));
+	--color-theme-base-rgba: rgba(var(--base-color-theme), 0.88);
+
+	//Text colors
+	--neutral-1: #e0e0e0;
+	--neutral-2: #bdbdbd;
+	--neutral-3: #9e9e9e;
+	--neutral-4: #757575;
+	--neutral-5: #616161;
+	--neutral-6: #424242;
+
+	//Ecosystem colors
+	--eco-1: #1e1e1e;
+	--eco-2: #252525;
+	--eco-3: #2c2c2c;
+	--eco-4: #333333;
+	--eco-5: #3b3b3b;
+
+	//Status colors
+	--info: #0288d1;
+	--success: #2e7d32;
+	--warning: #ed6c02;
+	--error: #d32f2f;
+
+	//Labels Colors
+	--nature: #388e3c;
+	--magenta: #c2185b;
+	--coral: #e64a19;
+	--purple: #7b1fa2;
+	--apple: #43a047;
+	--zink: #cddc39;
+	--lime: #8bc34a;
+
+	--tag-default: var(--neutral-6);
+
+	--color-hover: var(--base-3);
+	--color-active: var(--lime);
+	--bg-active: var(--tertiary-1);
+	--color-bold: var(--color-titles);
+	--color-code: rgba(255, 255, 255, 0.6);
+
+	--color-rate: #ffca28;
+
+	--color-icon-listInclude: var(--success);
+}

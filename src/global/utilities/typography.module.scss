@@ -1,0 +1,297 @@
+/**
+*----------------------------------------------------------------------
+*Font Size
+*-----------------------------------------------------------------------
+*/
+
+.font_size_XXXL {
+	font-size: var(--font-size-XXXL);
+	line-height: 1.3em;
+}
+
+.font_size_XXL {
+	font-size: var(--font-size-XXL);
+	line-height: 1.3em;
+}
+
+.font_size_XL {
+	font-size: var(--font-size-XL);
+	line-height: 1.3em;
+}
+
+.font_size_X {
+	font-size: var(--font-size-X);
+	line-height: 1.3em;
+}
+
+.font_size_L {
+	font-size: var(--font-size-L);
+	line-height: 1.3em;
+}
+
+.font_size_M {
+	font-size: var(--font-size-M);
+	line-height: 1.3em;
+}
+
+.font_size_S {
+	font-size: var(--font-size-S);
+	line-height: 1.3em;
+}
+
+.font_size_XS {
+	font-size: var(--font-size-XS);
+	line-height: 1.3em;
+}
+
+.font_size_XXS {
+	font-size: var(--font-size-XXS);
+	line-height: 1.3em;
+}
+
+/**
+*----------------------------------------------------------------------
+*Titles
+*-----------------------------------------------------------------------
+*/
+
+.t_XXXL,
+.h1 {
+	font-family: var(--font-titles);
+	font-size: var(--font-size-XXXL);
+	line-height: 1.3em;
+	font-weight: 600;
+	color: var(--color-titles);
+	text-transform: var(--titles-transform);
+}
+
+.h1 {
+	margin-bottom: var(--spacing-L);
+}
+
+.t_XXL,
+.h2 {
+	font-family: var(--font-titles);
+	font-size: var(--font-size-XXL);
+	line-height: 1.3em;
+	font-weight: 600;
+	color: var(--color-titles);
+	text-transform: var(--titles-transform);
+}
+
+.h2 {
+	margin-bottom: var(--spacing-L);
+}
+
+.t_XL,
+.h3 {
+	font-family: var(--font-titles);
+	font-size: var(--font-size-XL);
+	line-height: 1.3em;
+	font-weight: var(--font-bold);
+	color: var(--color-titles);
+	text-transform: var(--titles-transform);
+}
+
+.h3 {
+	margin-bottom: var(--spacing-L);
+}
+
+.t_L,
+.h4 {
+	font-family: var(--font-titles);
+	font-size: var(--font-size-L);
+	line-height: 1.3em;
+	font-weight: var(--font-bold);
+	color: var(--color-titles);
+	text-transform: var(--titles-transform);
+}
+
+.h4 {
+	margin-bottom: var(--spacing-L);
+}
+
+.decor {
+	position: relative;
+	padding: var(--padding-title-decorate);
+	margin: var(--margin-title-decorate);
+
+	&::after {
+		position: absolute;
+		content: var(--title-decorate);
+		color: var(--color-title-decorate);
+		background: var(--bg-title-decorate);
+		width: var(--width-title-decorate);
+		height: var(--height-title-decorate);
+		top: var(--top-title-decorate);
+		left: var(--left-title-decorate);
+		font-family: var(--font-icommon);
+		font-size: var(--font-size-XS);
+		border-radius: var(--spacing-XS);
+		line-height: 0;
+	}
+
+	&Responsive {
+		&::after {
+			width: 100%;
+		}
+	}
+}
+
+/**
+*----------------------------------------------------------------------
+*Text Categories
+*-----------------------------------------------------------------------
+*/
+
+.detail {
+	font-family: var(--font-titles);
+	font-size: var(--font-size-M);
+	line-height: 1.4em;
+	font-weight: var(--font-bold);
+	color: var(--color-titles);
+	text-transform: var(--titles-transform);
+
+	> i,
+	svg {
+		position: relative;
+		top: -2px;
+	}
+}
+
+.category {
+	font-size: var(--font-size-XS);
+	line-height: 1.8em;
+	color: var(--textDisclaimerColor);
+}
+
+.caption {
+	font-size: var(--font-size-XS);
+	line-height: 1.3em;
+	font-weight: var(--font-bold);
+}
+
+.subheading {
+	font-size: var(--font-size-S);
+	line-height: 1.3em;
+	font-weight: var(--font-bold);
+}
+
+.body {
+	font-family: var(--font-family-primary);
+	font-size: var(--font-size-M);
+	line-height: 1.5em;
+}
+
+.disclaimer {
+	font-size: var(--font-size-XXS);
+	color: var(--textDisclaimerColor);
+	line-height: 1.4em;
+	font-weight: 400;
+}
+
+/**
+*----------------------------------------------------------------------
+*Text Rebbots
+*-----------------------------------------------------------------------
+*/
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.bold {
+	font-weight: var(--font-bold);
+}
+
+.italic {
+	font-style: italic;
+}
+
+/**
+*----------------------------------------------------------------------
+*Obliga al texto a estar en una sola linea.
+*-----------------------------------------------------------------------
+*/
+
+.ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.text_nowrap {
+	white-space: nowrap;
+}
+
+.disabled {
+	opacity: 0.6;
+	user-select: none;
+
+	@at-root body[data-theme='dark'] #{&} {
+		opacity: 0.32;
+	}
+}
+
+/**
+*----------------------------------------------------------------------
+*Text Colors
+*-----------------------------------------------------------------------
+*/
+.text_body {
+	color: var(--color-body);
+}
+
+.text_white {
+	color: var(--white);
+}
+
+.text_secondary {
+	color: var(--secondary);
+}
+
+.text_tertiary {
+	color: var(--tertiary);
+}
+
+.text_success {
+	color: var(--success);
+}
+
+.text_warning {
+	color: var(--warning);
+}
+
+.text_error {
+	color: var(--error);
+}
+
+.text_info {
+	color: var(--info);
+}
+
+.text_disclaimer {
+	color: var(--neutral-5);
+}
+
+/**
+*----------------------------------------------------------------------
+*Text Align
+*-----------------------------------------------------------------------
+*/
+
+.text_center {
+	text-align: center;
+}
+
+.text_left {
+	text-align: left;
+}
+
+.text_right {
+	text-align: right;
+}
+
+.text_lineThrough {
+	text-decoration: line-through;
+}

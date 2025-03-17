@@ -1,0 +1,27 @@
+button.button {
+	padding: calc(var(--spacing-S) - 2px) calc(var(--spacing-XL) - 2px);
+	border: solid 2px 0;
+	transition: var(--transition);
+	&:not([disabled]) {
+		&:hover {
+			.spinner {
+				--color-spinner: var(--base);
+			}
+		}
+	}
+	&[disabled] {
+		color: var(--neutral-2);
+		border-color: var(--neutral-1);
+		&:hover {
+			pointer-events: none;
+		}
+	}
+}
+
+.spinner {
+	position: absolute !important;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	--color-spinner: var(--fourth);
+}
