@@ -1,11 +1,12 @@
 button.button {
 	padding: calc(var(--spacing-S) - 2px) calc(var(--spacing-XL) - 2px);
-	border: solid 2px 0;
-	transition: var(--transition);
+	border: solid 2px 1px;
+	color: var(--secondary) !important;
+	border-color: var(--secondary) !important;
 	&:not([disabled]) {
 		&:hover {
 			.spinner {
-				--color-spinner: var(--base);
+				--color-spinner: var(--secundary);
 			}
 		}
 	}

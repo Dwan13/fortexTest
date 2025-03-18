@@ -11,7 +11,6 @@ import {
   IconButton,
   TextField,
   TablePagination,
-  Button,
   Drawer,
   Box,
   Typography,
@@ -19,13 +18,14 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  OutlinedInput,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { IProperty } from "app/domain/application/interfaces/IProperty";
 import { usePropertiesApi } from "app/shared/hooks/useMockApiProperties";
-import { Spinner, SearchField } from "app/global/ui/01_atoms";
+import { Spinner, SearchField, ButtonPrimary, ButtonOutline } from "app/global/ui/01_atoms";
 import Utils from "app/global/utilities/utils.module.scss";
 
 export default function PropertyTable() {
@@ -56,7 +56,7 @@ export default function PropertyTable() {
 
   const handleSaveProperty = () => {
     if (!editingProperty?.name || !editingProperty?.type) {
-      alert("Name and Type are required");
+      alert("El nombre y el tipo son requeridos");
       return;
     }
 
@@ -84,14 +84,12 @@ export default function PropertyTable() {
           setSearch(e.target.value)
         }
       />
-      <Button
-        variant="contained"
-        color="primary"
+      <ButtonPrimary
         startIcon={<AddIcon />}
         onClick={() => handleOpenDrawer()}
       >
-        Add Property
-      </Button>
+        Agregar propiedad
+      </ButtonPrimary>
       {loading ? (
         <Spinner className={`${Utils.d_block} ${Utils.m_L}`} />
       ) : (
@@ -99,10 +97,10 @@ export default function PropertyTable() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell>Created At</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell>Nombre</TableCell>
+                <TableCell>Tipo</TableCell>
+                <TableCell>Creado en</TableCell>
+                <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -141,18 +139,29 @@ export default function PropertyTable() {
               setRowsPerPage(parseInt(event.target.value, 10));
               setPage(0);
             }}
+            labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
+            labelRowsPerPage="Filas por página:"
+            sx={{
+              "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows": {
+                margin: 0, 
+                padding: 0, 
+              },
+              "& .MuiTablePagination-toolbar": {
+                padding: 0, 
+              },
+            }}
           />
         </TableContainer>
       )}
       <Drawer anchor="top" open={drawerOpen} onClose={handleCloseDrawer}>
         <Box sx={{ width: "100%", p: 3 }}>
           <Typography variant="h6">
-            {editingProperty?.id ? "Edit Property" : "New Property"}
+            {editingProperty?.id ? "Editar propiedad" : "Nueva propiedad"}
           </Typography>
           <TextField
             fullWidth
             margin="normal"
-            label="Name"
+            label="Nombre"
             value={editingProperty?.name || ""}
             onChange={(e) =>
               setEditingProperty(
@@ -162,9 +171,10 @@ export default function PropertyTable() {
             required
           />
           <FormControl fullWidth margin="normal">
-            <InputLabel>Type</InputLabel>
+            <InputLabel>Tipo</InputLabel>
             <Select
-              value={editingProperty?.type || "texto"} // Asegura un valor válido por defecto
+              value={editingProperty?.type || "texto"}
+              input={<OutlinedInput label="Tipo" />}
               onChange={(e) =>
                 setEditingProperty((prev) =>
                   prev
@@ -179,21 +189,19 @@ export default function PropertyTable() {
               <MenuItem value="check">Check</MenuItem>
             </Select>
           </FormControl>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleSaveProperty}
-          >
-            Save
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={handleCloseDrawer}
-            sx={{ marginLeft: 2 }}
-          >
-            Cancel
-          </Button>
+          <div className={`${Utils.d_flex} ${Utils.gap_L}`}>
+            <ButtonPrimary
+              onClick={handleSaveProperty}
+            >
+              Guardar
+            </ButtonPrimary>
+            <ButtonOutline
+              onClick={handleCloseDrawer}
+            >
+              Cancelar
+            </ButtonOutline>
+          </div>
+
         </Box>
       </Drawer>
     </>

@@ -7,7 +7,7 @@ type ISeparator = {
 export function SearchField({ value, onChange }: ISeparator) {
   return (
     <TextField
-      label="Search"
+      label="Buscar"
       variant="outlined"
       fullWidth
       margin="normal"

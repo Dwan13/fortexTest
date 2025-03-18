@@ -4,7 +4,8 @@
 import { useAuth } from "app/shared/hooks/useAuth";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Avatar, Button, Card, CardContent, Container, Typography, Box } from "@mui/material";
+import { Avatar, Card, CardContent, Container, Typography, Box } from "@mui/material";
+import { ButtonOutline } from "app/global/ui/01_atoms";
 
 export const DashboardPage = () => {
   const { user, logoutUser } = useAuth();
@@ -30,13 +31,11 @@ export const DashboardPage = () => {
             Acceso: {user.isAdmin ? "Administrador" : "Usuario"}
           </Typography>
           <Box>
-            <Button 
-              variant="contained" 
-              color="error" 
+            <ButtonOutline 
               onClick={logoutUser}
             >
               Cerrar sesión
-            </Button>
+            </ButtonOutline>
           </Box>
         </CardContent>
       </Card>

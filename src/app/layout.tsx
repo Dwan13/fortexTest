@@ -16,12 +16,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <AuthProvider>
-      <html lang="en">
+      <html lang="es">
         <StoreProvider>
           <AppRouterCacheProvider>
-            <body data-mode="light">
+            <body>
               <Suspense fallback={<LinearProgress />}>
-                <div id="themeBody" data-mode="light">{children}</div>
+                <div>{children}</div>
               </Suspense>
             </body>
           </AppRouterCacheProvider>

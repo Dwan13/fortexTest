@@ -1,0 +1,23 @@
+$spacings: XXS, XS, S, M, L, XL, XXL, XXXL;
+
+@each $spacing in $spacings {
+	.gap_#{$spacing} {
+		gap: var(--spacing-#{$spacing}) !important;
+	}
+}
+
+@each $spacing in $spacings {
+	.gapx_#{$spacing} {
+		column-gap: var(--spacing-#{$spacing}) !important;
+	}
+}
+
+@each $spacing in $spacings {
+	.gapy_#{$spacing} {
+		row-gap: var(--spacing-#{$spacing}) !important;
+	}
+}
+
+.gap_0 {
+	gap: 0 !important;
+}

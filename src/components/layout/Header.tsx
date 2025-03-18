@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export default function Header({ open, setOpen, isMobile }: HeaderProps) {
   return (
-    <AppBar className={`${!isMobile && open ? styles.appBar : styles.appBarClosed}`} position="fixed">
+    <AppBar className={`${styles.appBar} ${!isMobile && open ? styles.appBarOpen : styles.appBarClosed}`} position="fixed">
       <Toolbar>
         <IconButton
           color="inherit"

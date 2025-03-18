@@ -1,39 +1,43 @@
 .MuiTextField-root {
-    background-color: var(--bg-body);
-    border-radius: var(--radius-checkbox);
-    color: var(--neutral-6);
+    background-color: var(--bg-body) !important;
+    border-radius: var(--radius-checkbox) !important;
+    color: var(--neutral-6) !important;
   }
   
   .MuiTextField-root.Mui-focused {
-    border-color: var(--base);
+    border-color: var(--base) !important;
   }
   
   .MuiCheckbox-root {
-    color: var(--neutral-6);
+    color: var(--neutral-6) !important;
   }
   
   .MuiCheckbox-root.Mui-checked {
-    color: var(--base);
+    color: var(--base) !important;
   }
   
   .MuiButton-contained {
-    background-color: var(--base);
-    color: var(--white);
-    border-radius: var(--radius-checkbox);
+    background-color: var(--base) !important;
+    color: var(--white) !important;
+    border-radius: var(--radius-checkbox) !important;
   }
   
   .MuiButton-contained:hover {
-    background-color: var(--base-5);
+    background-color: var(--base-5) !important;
   }
   
   .MuiButton-outlined {
-    border-color: var(--base);
-    color: var(--base);
-    border-radius: var(--radius-checkbox);
+    border-color: var(--base) !important;
+    color: var(--base) !important;
+    border-radius: var(--radius-checkbox) !important;
   }
   
   .MuiButton-outlined:hover {
-    border-color: var(--base-5);
-    color: var(--base-5);
+    border-color: var(--base-5) !important;
+    color: var(--base-5) !important;
   }
-  
+
+  :root{
+    --AppBar-background: var(--base) !important;
+    --AppBar-color: var(--white) !important;
+  }

@@ -1,6 +1,6 @@
-.button {
+button.button {
 	font-size: var(--font-size-M);
-
+	background-color: var(--base) !important;
 	&:not([disabled]) {
 		&:hover {
 			box-shadow: 0 0 0 4px var(--progress-card-color-1);

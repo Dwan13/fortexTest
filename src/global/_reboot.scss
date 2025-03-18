@@ -20,6 +20,7 @@ body {
 	color: var(--color-body);
 	background: var(--bg-body);
 	font-weight: 400;
+
 	&.body-block {
 		overflow: hidden;
 	}
@@ -139,42 +140,59 @@ input {
 
 /**
 *----------------------------------------------------------------------
+*Table
+*-----------------------------------------------------------------------
+*/
+
+table {
+	background-color: var(--bg-body);
+}
+
+td, th {
+	&:last-child {
+		text-align: center !important;
+	}
+}
+
+
+/**
+*----------------------------------------------------------------------
 *Text Colors
 *-----------------------------------------------------------------------
 */
 
 .text_white {
-	color: var(--textWhiteColor);
+	color: var(--textWhiteColor) !important;
 }
 
 .text_hightlight {
-	color: var(--textHighlightColor);
+	color: var(--textHighlightColor) !important;
 }
 
 .text_secondary {
-	color: var(--secondary);
+	color: var(--secondary) !important;
 }
 
 .text_tertiary {
-	color: var(--tertiary);
+	color: var(--tertiary) !important;
 }
 
 .text_success {
-	color: var(--textSuccessColor);
+	color: var(--textSuccessColor) !important;
 }
 
 .text_warning {
-	color: var(--textWarningColor);
+	color: var(--textWarningColor) !important;
 }
 
 .text_error {
-	color: var(--textErrorColor);
+	color: var(--textErrorColor) !important;
 }
 
 .text_info {
-	color: var(--textInfoColor);
+	color: var(--textInfoColor) !important;
 }
 
 .text_purple {
-	color: var(--purple);
+	color: var(--purple) !important;
 }

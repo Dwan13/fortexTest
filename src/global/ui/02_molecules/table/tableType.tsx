@@ -11,7 +11,6 @@ import {
   IconButton,
   TextField,
   TablePagination,
-  Button,
   Drawer,
   Box,
   Typography,
@@ -19,6 +18,7 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  OutlinedInput,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -27,7 +27,7 @@ import { IType } from "app/domain/application/interfaces/IType";
 import { mockProperties } from "./mockProperties";
 import { useTypesApi } from "app/shared/hooks/useMockApiTypes";
 import { usePropertiesApi } from "app/shared/hooks/useMockApiProperties";
-import { Spinner, SearchField } from "app/global/ui/01_atoms";
+import { Spinner, SearchField, ButtonPrimary, ButtonOutline } from "app/global/ui/01_atoms";
 import Utils from "app/global/utilities/utils.module.scss";
 export default function TypesTable() {
   const { types, loading, addType, updateType, deleteType } = useTypesApi();
@@ -58,7 +58,7 @@ export default function TypesTable() {
 
   const handleSaveType = () => {
     if (!editingType?.name) {
-      alert("Name is required");
+      alert("El nombre es requerido");
       return;
     }
 
@@ -83,14 +83,12 @@ export default function TypesTable() {
           setSearch(e.target.value)
         }
       />
-      <Button
-        variant="contained"
-        color="primary"
+      <ButtonPrimary
         startIcon={<AddIcon />}
         onClick={() => handleOpenDrawer()}
       >
-        Add Type
-      </Button>
+        Agregar tipo
+      </ButtonPrimary>
       {loading ? (
         <Spinner className={`${Utils.d_block} ${Utils.m_L}`} />
       ) : (
@@ -98,11 +96,11 @@ export default function TypesTable() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Description</TableCell>
-                <TableCell>Properties</TableCell>
-                <TableCell>Created At</TableCell>
-                <TableCell>Actions</TableCell>
+                <TableCell>Nombre</TableCell>
+                <TableCell>Descripción</TableCell>
+                <TableCell>Propiedades</TableCell>
+                <TableCell>Creado en</TableCell>
+                <TableCell>Acciones</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -142,18 +140,29 @@ export default function TypesTable() {
               setRowsPerPage(parseInt(event.target.value, 10));
               setPage(0);
             }}
+            labelDisplayedRows={({ from, to, count }) => `${from}-${to} de ${count}`}
+            labelRowsPerPage="Filas por página:"
+            sx={{
+              "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows": {
+                margin: 0, 
+                padding: 0, 
+              },
+              "& .MuiTablePagination-toolbar": {
+                padding: 0, 
+              },
+            }}
           />
         </TableContainer>
       )}
       <Drawer anchor="top" open={drawerOpen} onClose={handleCloseDrawer}>
         <Box sx={{ width: "100%", p: 3 }}>
           <Typography variant="h6">
-            {editingType?.id ? "Edit Type" : "New Type"}
+            {editingType?.id ? "Editar tipo" : "Nuevo tipo"}
           </Typography>
           <TextField
             fullWidth
             margin="normal"
-            label="Name"
+            label="Nombre"
             value={editingType?.name || ""}
             onChange={(e) =>
               setEditingType(
@@ -165,7 +174,7 @@ export default function TypesTable() {
           <TextField
             fullWidth
             margin="normal"
-            label="Description"
+            label="Descripción"
             value={editingType?.description || ""}
             onChange={(e) =>
               setEditingType(
@@ -174,10 +183,11 @@ export default function TypesTable() {
             }
           />
           <FormControl fullWidth margin="normal">
-            <InputLabel>Properties</InputLabel>
+            <InputLabel>Propiedades</InputLabel>
             <Select
               multiple
               value={editingType?.properties || []}
+              input={<OutlinedInput label="Propiedades" />}
               onChange={(e) =>
                 setEditingType((prev) =>
                   prev
@@ -194,17 +204,16 @@ export default function TypesTable() {
             </Select>
           </FormControl>
 
-          <Button variant="contained" color="primary" onClick={handleSaveType}>
-            Save
-          </Button>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={handleCloseDrawer}
-            sx={{ marginLeft: 2 }}
-          >
-            Cancel
-          </Button>
+          <div className={`${Utils.d_flex} ${Utils.gap_L}`}>
+            <ButtonPrimary onClick={handleSaveType}>
+              Guardar
+            </ButtonPrimary>
+            <ButtonOutline
+              onClick={handleCloseDrawer}
+            >
+              Cancelar
+            </ButtonOutline>
+          </div>
         </Box>
       </Drawer>
     </>

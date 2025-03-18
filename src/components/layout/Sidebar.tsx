@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Drawer, Box, IconButton, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+
+import { Drawer, Box, IconButton, Divider, List } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import StickyNote2Icon from "@mui/icons-material/StickyNote2";
+import HomeIcon from "@mui/icons-material/Home";
+import CategoryIcon from "@mui/icons-material/Category";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 import styles from "./Style.module.scss";
+import SidebarItem from "app/global/ui/02_molecules/sidebarItem";
 
 interface SidebarProps {
   open: boolean;
@@ -13,6 +17,10 @@ interface SidebarProps {
 
 export default function Sidebar({ open, setOpen, isMobile, router }: SidebarProps) {
   const handleDrawerClose = () => setOpen(false);
+
+  const isActiveRoute = (route: string) => {
+    return router.pathname === route;
+  };
 
   return (
     <Drawer
@@ -31,30 +39,32 @@ export default function Sidebar({ open, setOpen, isMobile, router }: SidebarProp
         </div>
         <Divider />
         <List>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => router.push("/dashboard")}>
-              <ListItemIcon>
-                <StickyNote2Icon />
-              </ListItemIcon>
-              <ListItemText primary="Inicio" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => router.push("/availabilityType")}>
-              <ListItemIcon>
-                <StickyNote2Icon />
-              </ListItemIcon>
-              <ListItemText primary="Tipos" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => router.push("/propertyList")}>
-              <ListItemIcon>
-                <StickyNote2Icon />
-              </ListItemIcon>
-              <ListItemText primary="Propiedades" />
-            </ListItemButton>
-          </ListItem>
+          {/* Ítem para Inicio */}
+          <SidebarItem
+            icon={<HomeIcon />}
+            text="Inicio"
+            route="/dashboard"
+            isActive={isActiveRoute("/dashboard")}
+            onClick={handleDrawerClose}
+          />
+
+          {/* Ítem para Tipos */}
+          <SidebarItem
+            icon={<CategoryIcon />}
+            text="Tipos"
+            route="/availabilityType"
+            isActive={isActiveRoute("/availabilityType")}
+            onClick={handleDrawerClose}
+          />
+
+          {/* Ítem para Propiedades */}
+          <SidebarItem
+            icon={<ListAltIcon />}
+            text="Propiedades"
+            route="/propertyList"
+            isActive={isActiveRoute("/propertyList")}
+            onClick={handleDrawerClose}
+          />
         </List>
       </Box>
     </Drawer>

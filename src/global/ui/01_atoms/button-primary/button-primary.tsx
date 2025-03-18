@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Poppins } from 'next/font/google';
 import React from 'react';
 import { Spinner } from 'app/global/ui/01_atoms/spinner';
@@ -13,7 +15,7 @@ const poppins = Poppins({
 
 type IButton = {
 	/** */
-	isSubmit: boolean;
+	isSubmit?: boolean;
 
 	/**
 	 * The content of the button.
@@ -39,6 +41,11 @@ type IButton = {
 	 * The CSS class name for the button.
 	 */
 	className?: string;
+
+	/**
+	 * The Icon for the button.
+	 */
+	startIcon?: any;
 
 	/**
 	 * A ref to the button element.
@@ -97,6 +104,7 @@ const ButtonPrimary = ({
 	children,
 	disabled,
 	loading,
+	startIcon,
 	//functions
 	className,
 	ref,
@@ -119,6 +127,7 @@ const ButtonPrimary = ({
 			//styles
 			disabled={disabled}
 			//functions
+			startIcon={startIcon}
 			ref={ref}
 			className={combinedClasses}
 			onClick={onClick}

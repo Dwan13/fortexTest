@@ -20,20 +20,23 @@
 	}
   }
   
-  .appBar {
+  header.appBar {
+	background-color: var(--fourth);
+  }
+  header.appBarOpen{
 	transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
-	width: calc(100% - 240px) !important;
+	width: calc(100% - 240px);
 	margin-left: 240px;
 	min-height: 64px;
   }
   
-  .appBarClosed {
+  header.appBarClosed {
 	width: 100%;
 	margin-left: 0;
   }
   
   @media (max-width: 960px) {
-	.appBar {
+	header.appBar {
 	  width: 100% !important;
 	  margin-left: 0 !important;
 	  min-height: 56px;

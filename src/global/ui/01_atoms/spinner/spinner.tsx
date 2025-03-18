@@ -23,21 +23,6 @@ type ISpinner = {
 	readonly className?: string;
 };
 
-/**
- * ### Spinner
- *
- * Use this component to indicate that a process is running. You can choose the size and color of the spinner.
- *
- * @param micro - The spinner will be very small.
- * @param small - The spinner will be small.
- * @param color - The color of the spinner.
- *
- * @example
- * Here's a basic example of how to use the Spinner:
- * ```tsx
- * <Spinner micro />
- * ```
- */
 export function Spinner({ micro, small, className, color }: ISpinner) {
 	const size = micro ? 16 : small ? 24 : 40;
 
