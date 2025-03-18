@@ -87,9 +87,9 @@ export const LoginForm = () => {
             {data.userIncorrect && (
               <>
                 <Alert severity="warning" variant="outlined" sx={{ mt: 2 }}>
-                  <b>Password invalid</b>
+                  <b>Usuario o Contraseña invalida</b>
                   <Separator size="XS" />
-                  <span>Try again.​</span>
+                  <span>Intenta de nuevo.​</span>
                 </Alert>
                 <Separator size="XXS" />
               </>
