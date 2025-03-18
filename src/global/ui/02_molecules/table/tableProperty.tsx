@@ -19,13 +19,14 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
-  CircularProgress,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { IProperty } from "app/domain/application/interfaces/IProperty";
 import { usePropertiesApi } from "app/shared/hooks/useMockApiProperties";
+import { Spinner, SearchField } from "app/global/ui/01_atoms";
+import Utils from "app/global/utilities/utils.module.scss";
 
 export default function PropertyTable() {
   const { properties, loading, addProperty, updateProperty, deleteProperty } =
@@ -77,13 +78,11 @@ export default function PropertyTable() {
 
   return (
     <>
-      <TextField
-        label="Search Properties"
-        variant="outlined"
-        fullWidth
-        margin="normal"
+      <SearchField
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+          setSearch(e.target.value)
+        }
       />
       <Button
         variant="contained"
@@ -94,7 +93,7 @@ export default function PropertyTable() {
         Add Property
       </Button>
       {loading ? (
-        <CircularProgress sx={{ display: "block", margin: "20px auto" }} />
+        <Spinner className={`${Utils.d_block} ${Utils.m_L}`} />
       ) : (
         <TableContainer component={Paper} sx={{ marginTop: 2 }}>
           <Table>

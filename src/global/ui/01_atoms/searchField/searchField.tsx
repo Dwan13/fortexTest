@@ -1,7 +1,10 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {TextField} from "@mui/material";
-
-export function SearchField({ value, onChange }) {
+type ISeparator = {
+  value: string,
+  onChange: any;
+}
+export function SearchField({ value, onChange }: ISeparator) {
   return (
     <TextField
       label="Search"

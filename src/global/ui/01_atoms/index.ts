@@ -8,3 +8,4 @@ export { TextFiled } from './textField';
 export { PasswordField } from './passwordField';
 export { Separator } from './separators';
 export { Spinner } from './spinner';
+export { SearchField } from './searchField';

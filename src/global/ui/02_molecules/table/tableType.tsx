@@ -19,7 +19,6 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
-  CircularProgress,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -28,7 +27,8 @@ import { IType } from "app/domain/application/interfaces/IType";
 import { mockProperties } from "./mockProperties";
 import { useTypesApi } from "app/shared/hooks/useMockApiTypes";
 import { usePropertiesApi } from "app/shared/hooks/useMockApiProperties";
-
+import { Spinner, SearchField } from "app/global/ui/01_atoms";
+import Utils from "app/global/utilities/utils.module.scss";
 export default function TypesTable() {
   const { types, loading, addType, updateType, deleteType } = useTypesApi();
   const [search, setSearch] = React.useState("");
@@ -37,7 +37,7 @@ export default function TypesTable() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [editingType, setEditingType] = React.useState<IType | null>(null);
   const { properties } = usePropertiesApi();
-  const newProperties = properties? properties:mockProperties;
+  const newProperties = properties ? properties : mockProperties;
   const handleOpenDrawer = (type?: IType) => {
     setEditingType(
       type || {
@@ -77,13 +77,11 @@ export default function TypesTable() {
 
   return (
     <>
-      <TextField
-        label="Search Types"
-        variant="outlined"
-        fullWidth
-        margin="normal"
+      <SearchField
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+          setSearch(e.target.value)
+        }
       />
       <Button
         variant="contained"
@@ -94,7 +92,7 @@ export default function TypesTable() {
         Add Type
       </Button>
       {loading ? (
-        <CircularProgress sx={{ display: "block", margin: "20px auto" }} />
+        <Spinner className={`${Utils.d_block} ${Utils.m_L}`} />
       ) : (
         <TableContainer component={Paper} sx={{ marginTop: 2 }}>
           <Table>
