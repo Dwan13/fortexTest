@@ -1,14 +1,17 @@
 // mixins.module.scss
+@use "sass:map";
 
-@import '../tokens/screensizings'; // Importa los breakpoints predefinidos
+@use '../tokens/screensizings' as tokens;
+
+$grid-breakpoints: tokens.$grid-breakpoints;
 
 @mixin responsiveUp($size) {
-	$valid-breakpoints: map-keys(
+	$valid-breakpoints: map.keys(
 		$grid-breakpoints
 	); // Obtiene las claves (nombres) de los breakpoints
 
-	@if map-has-key($grid-breakpoints, $size) {
-		$media-query: map-get($grid-breakpoints, $size);
+	@if map.has-key($grid-breakpoints, $size) {
+		$media-query: map.get($grid-breakpoints, $size);
 
 		@media (min-width: $media-query) {
 			@content;
@@ -19,12 +22,12 @@
 }
 
 @mixin responsiveDown($size) {
-	$valid-breakpoints: map-keys(
+	$valid-breakpoints: map.keys(
 		$grid-breakpoints
 	); // Obtiene las claves (nombres) de los breakpoints
 
-	@if map-has-key($grid-breakpoints, $size) {
-		$media-query: map-get($grid-breakpoints, $size);
+	@if map.has-key($grid-breakpoints, $size) {
+		$media-query: map.get($grid-breakpoints, $size);
 
 		@media (max-width: $media-query) {
 			@content;

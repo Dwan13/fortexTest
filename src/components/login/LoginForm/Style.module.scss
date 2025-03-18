@@ -1,11 +1,11 @@
-@import 'app/global/utilities/mixins.module.scss';
+@use 'app/global/utilities/mixins.module.scss' as mixins;
 
 
 .Logo {
 	width: auto;
 	height: 36px;
 
-	@include responsiveUp(md) {
+	@include mixins.responsiveUp(md) {
 		height: 60px;
 	}
 }
@@ -19,11 +19,11 @@
 	background-color: var(--fourth);
 	align-items: flex-start;
 
-	@include responsiveUp(md) {
+	@include mixins.responsiveUp(md) {
 		grid-template-rows: 26vh auto;
 	}
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		grid-template-rows: 50dvh auto;
 	}
 }
@@ -34,17 +34,17 @@
 	margin: -5% auto 0;
 	z-index: var(--zindex-content);
 
-	@include responsiveUp(md) {
+	@include mixins.responsiveUp(md) {
 		width: 86%;
 	}
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		margin-top: -4%;
 		width: 96%;
 		grid-template-columns: 1fr 2fr;
 	}
 
-	@include responsiveUp(xl) {
+	@include mixins.responsiveUp(xl) {
 		width: 86%;
 	}
 }
@@ -100,7 +100,7 @@
 	padding-top: 54px;
 	padding-bottom: 54px;
 
-	@include responsiveDown(md) {
+	@include mixins.responsiveDown(md) {
 		padding: var(--spacing-XL);
 	}
 }
@@ -110,11 +110,11 @@
 	gap: var(--spacing-M);
     align-items: center;
 	
-	@include responsiveDown(lg) {
+	@include mixins.responsiveDown(lg) {
 		display: grid;
 	}
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		> * {
 			flex: 3;
 
@@ -130,7 +130,7 @@
 	position: relative;
 	z-index: var(--zindex-banner);
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		height: 50vh;
 	}
 	

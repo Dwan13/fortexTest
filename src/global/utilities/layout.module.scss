@@ -1,4 +1,4 @@
-@import 'app/global/utilities/mixins.module.scss';
+@use 'app/global/utilities/mixins.module.scss' as mixins;
 
 //Layout Base
 .layout {
@@ -10,7 +10,7 @@
 		'aside main asideR'
 		'aside footer footer';
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		min-height: 100vh;
 	}
 
@@ -109,7 +109,7 @@
 	display: grid;
 
 	.wrapperCover {
-		@include responsiveDown(lg) {
+		@include mixins.responsiveDown(lg) {
 			grid-row: 1 / 2;
 		}
 	}
@@ -117,7 +117,7 @@
 	.cover {
 		max-height: 20vh;
 
-		@include responsiveUp(lg) {
+		@include mixins.responsiveUp(lg) {
 			position: sticky;
 			max-height: calc(100vh - var(--size-header));
 			min-height: calc(100vh - var(--size-header));
@@ -125,7 +125,7 @@
 		}
 	}
 
-	@include responsiveUp(lg) {
+	@include mixins.responsiveUp(lg) {
 		grid-template: auto / 1.5fr 1fr;
 	}
 }

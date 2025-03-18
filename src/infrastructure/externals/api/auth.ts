@@ -10,11 +10,7 @@ export const login = async (username: string, password: string) => {
     const { token, userId, username: name } = res.data;
     const decodedToken = jwtDecode<ICustomJwtPayload>(token);
     const isAdmin = decodedToken?.isAdmin;
-
     localStorage.setItem("token", token);
-
-    console.log('res.data', res.data, token);
-
     return { userId, name, isAdmin };
   } catch (error) {
     throw new Error("Credenciales inválidas");
@@ -28,3 +24,18 @@ export const logout = () => {
 export const getAuthToken = () => {
   return localStorage.getItem("token");
 };
+
+
+export function getUserFromToken(token: string) {
+  try {
+    const decoded: ICustomJwtPayload = jwtDecode(token);
+    return {
+      userId: decoded.userId,
+      name: decoded.username,
+      isAdmin: decoded.isAdmin,
+    };
+  } catch (error) {
+    console.error("Error decoding token:", error);
+    return null;
+  }
+}

@@ -1,4 +1,4 @@
-@import 'app/global/utilities/mixins.module.scss';
+@use 'app/global/utilities/mixins.module.scss' as mixins;
 
 * {
 	box-sizing: border-box;

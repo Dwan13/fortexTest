@@ -2,6 +2,9 @@ import "app/global/ui-kit.scss";
 import type { Metadata } from "next";
 import { AuthProvider } from "app/shared/context/AuthProvider";
 import StoreProvider from "./StoreProvider";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import LinearProgress from "@mui/material/LinearProgress";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,18 +13,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <AuthProvider>
       <html lang="en">
         <StoreProvider>
-          <body data-mode='light'>
-            <div id='themeBody' data-mode='light'>
-              {children}
-            </div>
-          </body>
+          <AppRouterCacheProvider>
+            <body data-mode="light">
+              <Suspense fallback={<LinearProgress />}>
+                <div id="themeBody" data-mode="light">{children}</div>
+              </Suspense>
+            </body>
+          </AppRouterCacheProvider>
         </StoreProvider>
       </html>
     </AuthProvider>
