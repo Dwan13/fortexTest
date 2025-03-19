@@ -14,22 +14,18 @@ import {
 import Style from "./Style.module.scss";
 import Utils from "app/global/utilities/utils.module.scss";
 import Image from "next/image";
-//import useLogin from "app/shared/hooks/useLogin";
+import useLogin from "app/shared/hooks/useLogin";
 import useLoginStorage from "app/domain/application/client/useLoginStorage";
 import useValidationLogin from "app/shared/hooks/useValidationLogin";
 import { Alert } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-const mockUsers = [
-  { username: "admin", password: "Secure_456", isAdmin: true },
-  { username: "user", password: "password", isAdmin: false },
-];
+
 
 export const LoginForm = () => {
 
-  /* Descomentar lineas y comentar las del mockUser para usar la BD en local por el momento */
 
-  //const { login } = useLogin();
+  const { login } = useLogin();
   const router = useRouter();
   
   const { getLogin, setLogin } = useLoginStorage();
@@ -44,22 +40,14 @@ export const LoginForm = () => {
   const handleMouseDownPassword = (event: React.MouseEvent) => {
     event.preventDefault();
   };
-  //const { user, logoutUser } = useAuth();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    /* if (checkPassword()) {
+    if (checkPassword()) {
       login();
     } else {
       validateAll();
-    } */
-      const user = mockUsers.find((u) => u.username === dataForm.username && u.password === dataForm.password);
-      if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        router.push("/dashboard");
-      } else {
-        validateAll();
-      }
+    }
+      
   };
 
   return (
