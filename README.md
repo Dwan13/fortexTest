@@ -110,7 +110,7 @@ En los componentes `DashboardPage` y `LoginForm`, se dejaron instrucciones para 
 - Desplegar una landing page dinámica para mejorar la experiencia de usuario.
 
 ### Desafíos actuales:
-Se encontraron problemas con los certificados SSL en AWS, lo que impide el acceso completo al backend. Actualmente, el backend está desplegado, pero sin registro funcional hasta resolver estos problemas.
+Se encontraron problemas con los certificados SSL en AWS, lo que impide el acceso completo al backend. Actualmente, el backend está desplegado, pero sin registro funcional hasta resolver estos problemas (en la rama aws esta la configuracion para esta conexion si se decea probar localmente).
 
 **Usuarios mock para pruebas:**
 ```json
