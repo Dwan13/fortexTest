@@ -38,7 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 ### Flujo de datos
-![image]([[https://github.com/Dwan13/fortexTest/blob/main/Flujo.drawio.png](https://github.com/Dwan13/fortexTest/blob/main/ER.png)](https://github.com/Dwan13/fortexTest/blob/main/Arquitectura.drawio.png))
+![image](https://github.com/Dwan13/fortexTest/blob/main/Arquitectura.drawio.png)
 
 ![image](https://github.com/Dwan13/fortexTest/blob/main/Flujo.drawio.png)
-![image]([https://github.com/Dwan13/fortexTest/blob/main/Flujo.drawio.png](https://github.com/Dwan13/fortexTest/blob/main/ER.png))
+![image](https://github.com/Dwan13/fortexTest/blob/main/ER.png)
