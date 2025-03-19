@@ -1,19 +1,44 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useAuth } from "app/shared/hooks/useAuth";
-import { useEffect } from "react";
+//import { useAuth } from "app/shared/hooks/useAuth";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Avatar, Card, CardContent, Container, Typography, Box } from "@mui/material";
 import { ButtonOutline } from "app/global/ui/01_atoms";
 
 export const DashboardPage = () => {
-  const { user, logoutUser } = useAuth();
+  /*  Descomentar estas lineas y comentar las demas para usar BD
+    const { user, logoutUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
     if (!user) router.push("/login"); 
   }, [user, router]);
+
+  if (!user) return null;
+  */
+  const [user, setUser] = useState<{ username: string; isAdmin: boolean } | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+        localStorage.removeItem("user");
+      }
+    } else {
+      router.push("/login");
+    }
+  }, [router]);
+
+  const logoutUser = () => {
+    localStorage.removeItem("user");
+    router.push("/login");
+  };
 
   if (!user) return null;
 
@@ -31,11 +56,7 @@ export const DashboardPage = () => {
             Acceso: {user.isAdmin ? "Administrador" : "Usuario"}
           </Typography>
           <Box>
-            <ButtonOutline 
-              onClick={logoutUser}
-            >
-              Cerrar sesión
-            </ButtonOutline>
+            <ButtonOutline onClick={logoutUser}>Cerrar sesión</ButtonOutline>
           </Box>
         </CardContent>
       </Card>
