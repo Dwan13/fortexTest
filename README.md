@@ -129,5 +129,5 @@ Se encontraron problemas con los certificados SSL en AWS, lo que impide el acces
 
 ---
 
-_Desarrollado por [Tu Nombre]_
+_Desarrollado por Dwan Felipe Veloza Páez
 
