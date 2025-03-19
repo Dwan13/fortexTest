@@ -67,7 +67,7 @@ Se definió un modelo estructurado para gestionar las relaciones entre usuarios,
 
 ![Modelo ER](https://github.com/Dwan13/fortexTest/blob/main/ER.png)
 
-En la imagen se puede observar cómo las entidades interactúan entre sí, permitiendo una correcta estructuración de los datos dentro del sistema.
+En la imagen se puede observar cómo las entidades interactúan entre sí, permitiendo una correcta estructuración de los datos dentro del sistema. Para mas información consultar el repositorio del backend.
 
 ## Sistema de diseño y UI
 
