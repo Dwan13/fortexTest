@@ -29,6 +29,10 @@ pnpm dev
 bun dev
 ```
 
+```env
+   [NEXT_PUBLIC_API_BASE_URL=https://ec2-3-15-11-112.us-east-2.compute.amazonaws.com:8080/
+   ```
+
 Luego, abre [http://localhost:3000](http://localhost:3000) en el navegador.
 
 ## Arquitectura
